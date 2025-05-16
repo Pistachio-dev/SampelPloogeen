@@ -2,7 +2,7 @@ name: "Manual Release"
 on: workflow_dispatch
 env:
   internalPluginName: "SampelPloogeen"
-  version: "0.0.0.0"  
+  internalPluginVersion: "0.0.0.0"  
 jobs:
   releasePluginUpdate: 
     runs-on: windows-latest
@@ -15,9 +15,9 @@ jobs:
       - name: "Get version number"
         run: |
             $versionRetrieved = .\.github\Workflows\GetVersionNumber.ps1 -PluginAssemblyName "${{env.internalPluginName}}"
-            echo "version=$versionRetrieved" >> $env:GITHUB_ENV
+            echo "internalPluginVersion=$versionRetrieved" >> $env:GITHUB_ENV
       - name: "Debug that we have the correct version"
-        run: Write-Output "${{env.version}}"
+        run: Write-Output "${{env.internalPluginVersion}}"
       - name: Setup .NET
         uses: actions/setup-dotnet@v1
         with:
@@ -30,6 +30,6 @@ jobs:
           Expand-Archive -Force latest.zip "$env:AppData\XIVLauncher\addon\Hooks\dev"
       - name: Build
         run: |
-          $ver = "${{env.version}}"
+          $ver = "${{env.internalPluginVersion}}"
           Write-Output "Version: $($ver)"
           invoke-expression 'dotnet build --no-restore --configuration Release --nologo -p:Version=$ver -p:FileVersion=$ver -p:AssemblyVersion=$ver'
