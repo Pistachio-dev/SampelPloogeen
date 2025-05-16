@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DalamudBasics\DalamudBasics\DalamudBasics.csproj" />
     <ProjectReference Include="..\JustAPlainProject\APlainProject\APlainProject.csproj" />
   </ItemGroup>
 </Project>

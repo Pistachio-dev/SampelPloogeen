@@ -33,10 +33,12 @@
       "dalamudbasics": {
         "type": "Project",
         "dependencies": {
-          "D:\\Code\\Dalamud\\_Personal\\SampelPloogeen\\DalamudBasics\\ECommons\\ECommons\\ECommons.csproj": "[1.0.0, )",
-          "DalamudPackager": "[12.0.0, )",
+          "ECommons": "[2.2.0.2, )",
           "Microsoft.Extensions.DependencyInjection": "[9.0.4, )"
         }
+      },
+      "ecommons": {
+        "type": "Project"
       }
     }
   }
