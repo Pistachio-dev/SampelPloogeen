@@ -1,3 +1,6 @@
 [submodule "JustAPlainProject"]
 	path = JustAPlainProject
 	url = https://github.com/Pistachio-dev/JustAPlainProject.git
+[submodule "DalamudBasics"]
+	path = DalamudBasics
+	url = https://github.com/Pistachio-dev/DalamudBasics.git
