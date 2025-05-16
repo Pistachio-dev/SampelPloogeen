@@ -1,7 +1,7 @@
 name: "Manual Release"
 on: workflow_dispatch
 env:
-  assemblyName: "SampelPloogeen"
+  internalPluginName: "SampelPloogeen"
   version: "0.0.0.0"  
 jobs:
   releasePluginUpdate: 
@@ -11,11 +11,11 @@ jobs:
         with:
           submodules: recursive
       # - name: "Verify version information"
-      #   run: .\.github\Workflows\UpdateVersions.ps1 -PluginAssemblyName "${{env.assemblyName}}"
+      #   run: .\.github\Workflows\UpdateVersions.ps1 -PluginAssemblyName "${{env.internalPluginName}}"
       - name: "Get version number"
         run: |
-            $versionRetrieved = .\.github\Workflows\GetVersionNumber.ps1 -PluginAssemblyName "${{env.assemblyName}}"
-            echo "version=$versionRetrieved" >> $env:GITHUB_ENV            
+            $versionRetrieved = .\.github\Workflows\GetVersionNumber.ps1 -PluginAssemblyName "${{env.internalPluginName}}"
+            echo "version=$versionRetrieved" >> $env:GITHUB_ENV
       - name: "Debug that we have the correct version"
         run: Write-Output "${{env.version}}"
       - name: Setup .NET
